@@ -1,0 +1,15 @@
+Source: salt-formula-ardupilot
+Maintainer: Ales Komarek <ales.komarek@newt.cz>
+Section: admin
+Priority: optional
+Build-Depends: debhelper (>= 9), python, python-yaml
+Standards-Version: 3.9.6
+Homepage: https://github.com/salt-formulas
+Vcs-Browser: https://github.com/salt-formulas/salt-formula-ardupilot
+Vcs-Git: https://github.com/salt-formulas/salt-formula-ardupilot.git
+
+Package: salt-formula-ardupilot
+Architecture: all
+Depends: ${misc:Depends}
+Description: ardupilot salt formula
+ Install and configure ardupilot.

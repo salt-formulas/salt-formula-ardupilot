@@ -1,0 +1,21 @@
+{%- set version = salt['pillar.get']('ardupilot:vehicle:version', '3.6') %}
+{%- set kind = salt['pillar.get']('ardupilot:vehicle:kind', 'copter') %}
+
+{%- load_yaml as base_defaults %}
+Debian:
+  pkgs:
+  - i2c-tools
+  - bb-cape-overlays
+  - ardupilot-{{ kind }}-{{ version }}-blue
+  dir:
+    bin: /usr/bin/ardupilot
+  port_mapping:
+    serial0: A
+    serial1: C
+    serial2: D
+    serial3: B
+    serial4: E
+    serial5: F
+{%- endload %}
+
+{%- set vehicle = salt['grains.filter_by'](base_defaults, merge=salt['pillar.get']('ardupilot:vehicle')) %}

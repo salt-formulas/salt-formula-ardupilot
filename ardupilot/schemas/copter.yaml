@@ -1,0 +1,17 @@
+%YAML 1.1
+---
+"$schema": "http://json-schema.org/draft-06/schema#"
+title: ardupilot daemon role
+description: |
+  Ardupilot daemon, server role
+type: object
+additionalProperties: false
+
+required:
+  - enabled
+
+properties:
+  enabled:
+    description: |
+      Enables ardupilot daemon service
+    type: boolean

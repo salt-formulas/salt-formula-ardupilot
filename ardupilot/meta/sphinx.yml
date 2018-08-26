@@ -1,0 +1,12 @@
+{%- from "ardupilot/map.jinja" import copter with context %}
+# Fill in documentation details
+doc:
+  name: ardupilot
+  description: Some service info
+  role:
+    copter:
+      name: copter
+      param:
+        some_param:
+          name: "Some name"
+          value: "some value"

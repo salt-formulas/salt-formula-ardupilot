@@ -1,0 +1,10 @@
+{%- from "ardupilot/map.jinja" import vehicle with context %}
+TELEM1="-C /dev/ttyO1"
+{%- if vehicle.module.gps.enabled %}
+TELEM2="-A udp:<target IP address>:14550"
+{%- if vehicle.module.gps.enabled %}
+GPS="-B {{ vehicle.module.gps.device }}"
+{%- endif %}
+
+{% for module_name, module in vehicle.module.items() %} -{{ vehicle.port_mapping[module.serial_port] }} {% if module.device is defined %}{{ module.device }}{% else %}udp:{{ module.host }}:{{ module.port }}{% endif %}{% endfor %}
+-C udp:192.168.178.26:14550
